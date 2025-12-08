@@ -1,91 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Completo de Comunicação</title>
+    <title>Curso Ultra Profissional</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="login-screen">
-        <h2>Digite a senha para acessar o curso</h2>
-        <input type="password" id="senha" placeholder="Senha">
-        <button onclick="verificarSenha()">Entrar</button>
-        <p id="erro-senha"></p>
-    </div>
-
-    <div id="main-content" class="hidden">
-        <header>
-            <h1>Curso Completo de Comunicação</h1>
-        </header>
-        <div class="container">
-            <nav class="sidebar">
-                <ul>
-                    <li onclick="mostrarModulo(1)">Módulo 1 - Postura</li>
-                    <li onclick="mostrarModulo(2)">Módulo 2 - Dicção</li>
-                    <li onclick="mostrarModulo(3)">Módulo 3 - Comunicação Geral</li>
-                    <li onclick="mostrarModulo(4)">Módulo 4 - Modo de Agir</li>
-                    <li onclick="mostrarModulo(5)">Módulo 5 - Técnicas Extras</li>
-                </ul>
-            </nav>
-            <main class="content">
-                <div id="modulo1" class="modulo hidden">
-                    <h2>Módulo 1 - Postura</h2>
-                    <p>Dicas para melhorar sua postura corporal, presença e confiança.</p>
-                    <ul>
-                        <li>Pratique manter coluna reta</li>
-                        <li>Evite cruzar os braços e pernas</li>
-                        <li>Movimentos suaves e naturais</li>
-                    </ul>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XjF3L2yF4RQ" title="Postura" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <div id="modulo2" class="modulo hidden">
-                    <h2>Módulo 2 - Dicção</h2>
-                    <p>Exercícios de dicção e pronúncia clara para melhorar sua comunicação.</p>
-                    <ul>
-                        <li>Treine trava-línguas diariamente</li>
-                        <li>Fale devagar e com pausas naturais</li>
-                        <li>Projete a voz sem gritar</li>
-                    </ul>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/y6oA5kg4dbM" title="Dicção" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <div id="modulo3" class="modulo hidden">
-                    <h2>Módulo 3 - Comunicação Geral</h2>
-                    <p>Dicas gerais de comunicação e interação social.</p>
-                    <ul>
-                        <li>Mantenha contato visual</li>
-                        <li>Escute mais do que fala</li>
-                        <li>Use gestos naturais</li>
-                    </ul>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6ZrG5MzrYog" title="Comunicação Geral" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <div id="modulo4" class="modulo hidden">
-                    <h2>Módulo 4 - Modo de Agir</h2>
-                    <p>Como agir naturalmente, transmitir confiança e se tornar mais autêntico.</p>
-                    <ul>
-                        <li>Seja você mesmo, sem forçar</li>
-                        <li>Aprenda timing de conversas</li>
-                        <li>Use humor leve para aliviar tensão</li>
-                    </ul>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/3EZ2tM6krlg" title="Modo de Agir" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <div id="modulo5" class="modulo hidden">
-                    <h2>Módulo 5 - Técnicas Extras</h2>
-                    <p>Dicas adicionais de comunicação, postura e dicção que complementam os módulos anteriores.</p>
-                    <ul>
-                        <li>Pratique falar sozinho em frente ao espelho</li>
-                        <li>Grave sua voz e observe pontos a melhorar</li>
-                        <li>Faça anotações sobre interações sociais</li>
-                    </ul>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/vO0HPuJZBvQ" title="Técnicas Extras" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </main>
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Digite a senha para acessar</h2>
+            <input type="password" id="senha-input" placeholder="Senha">
+            <button id="entrar-btn">Entrar</button>
+            <p id="login-msg"></p>
         </div>
     </div>
+
+    <header>
+        <div class="logo">Curso Ultra Profissional</div>
+        <nav>
+            <ul>
+                <li class="active" data-tab="modulos">Módulos</li>
+                <li data-tab="checklist">Checklist</li>
+                <li data-tab="sobre">Sobre</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="modulos" class="tab-content active">
+            <h1>Módulos do Curso</h1>
+            <div class="module">
+                <h2>1. Dicção e Fala</h2>
+                <video controls src="videos/diccao.mp4"></video>
+                <p>Dicas e técnicas para melhorar dicção, pronúncia e clareza na comunicação.</p>
+            </div>
+            <div class="module">
+                <h2>2. Postura e Expressão Corporal</h2>
+                <video controls src="videos/postura.mp4"></video>
+                <p>Como se portar, gesticular e transmitir confiança com a postura.</p>
+            </div>
+            <div class="module">
+                <h2>3. Comunicação Eficaz</h2>
+                <video controls src="videos/comunicacao.mp4"></video>
+                <p>Técnicas de interação, ouvir ativamente e conduzir conversas de forma natural.</p>
+            </div>
+            <div class="module">
+                <h2>4. Modo de Agir e Confiança</h2>
+                <video controls src="videos/confiança.mp4"></video>
+                <p>Como agir de forma segura, assertiva e confiante, sem forçar situações.</p>
+            </div>
+            <div class="module">
+                <h2>5. Dinâmica Social e Friendzone</h2>
+                <video controls src="videos/friendzone.mp4"></video>
+                <p>Dicas de interação social, limites, timing e como evitar ficar apenas na friendzone.</p>
+            </div>
+        </section>
+
+        <section id="checklist" class="tab-content">
+            <h1>Checklist Diário</h1>
+            <ul>
+                <li><input type="checkbox"> Treinar dicção por 20 minutos</li>
+                <li><input type="checkbox"> Assistir um módulo do curso</li>
+                <li><input type="checkbox"> Praticar postura e gestos frente ao espelho</li>
+                <li><input type="checkbox"> Escrever pensamentos e técnicas aprendidas</li>
+                <li><input type="checkbox"> Simular conversas ou interações</li>
+            </ul>
+        </section>
+
+        <section id="sobre" class="tab-content">
+            <h1>Sobre o Curso</h1>
+            <p>Este curso é focado em desenvolvimento pessoal, comunicação, dicção, postura e confiança.</p>
+            <p>Ele foi criado especialmente para ser usado de forma prática, com vídeos, textos e checklist.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Curso Ultra Profissional &copy; 2025</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

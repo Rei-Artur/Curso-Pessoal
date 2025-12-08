@@ -7,7 +7,7 @@ const loginButton = document.getElementById('login-button');
 
 loginButton.addEventListener('click', () => {
     const password = loginInput.value.trim();
-    if(password === "1234"){
+    if(password === "12345"){
         loginOverlay.style.display = 'none';
     } else {
         alert("Senha incorreta! Tente novamente.");

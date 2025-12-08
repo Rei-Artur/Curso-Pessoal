@@ -1,230 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curso Completo de Comunicação e Postura</title>
-<style>
-    /* Reset básico */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-    body {
-        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        color: #fff;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Container geral */
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        background: rgba(0,0,0,0.65);
-        backdrop-filter: blur(12px);
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        display: none; /* inicialmente escondido até senha */
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    /* Tela de senha */
-    .login-screen {
-        text-align: center;
-    }
-    .login-screen input {
-        padding: 12px;
-        border-radius: 8px;
-        border: none;
-        width: 200px;
-        margin-right: 10px;
-    }
-    .login-screen button {
-        padding: 12px 20px;
-        border-radius: 8px;
-        border: none;
-        background-color: #2575fc;
-        color: #fff;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    /* Cabeçalho */
-    .header {
-        text-align: center;
-    }
-    .header h1 { margin-bottom: 10px; font-size: 2em; color: #ffd700; }
-    .header p { font-size: 1.1em; color: #ddd; }
-
-    /* Menu abas */
-    .tabs {
-        display: flex;
-        gap: 15px;
-        overflow-x: auto;
-        padding-bottom: 10px;
-    }
-    .tab {
-        padding: 10px 20px;
-        background: rgba(255,255,255,0.1);
-        border-radius: 10px;
-        cursor: pointer;
-        transition: 0.3s;
-        white-space: nowrap;
-    }
-    .tab.active {
-        background: #ffd700;
-        color: #000;
-        font-weight: bold;
-    }
-
-    /* Conteúdo dos módulos */
-    .module {
-        display: none;
-        animation: fadeIn 0.6s ease-in-out;
-    }
-    .module.active { display: block; }
-
-    @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(20px);}
-        to {opacity:1; transform: translateY(0);}
-    }
-
-    /* Vídeos */
-    iframe {
-        width: 100%;
-        height: 400px;
-        border-radius: 12px;
-        border: none;
-        margin-bottom: 15px;
-    }
-
-    /* Checklist */
-    .checklist {
-        list-style: none;
-        padding-left: 0;
-    }
-    .checklist li {
-        padding: 8px;
-        margin-bottom: 6px;
-        background: rgba(255,255,255,0.1);
-        border-radius: 8px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    .checklist li.completed {
-        text-decoration: line-through;
-        opacity: 0.7;
-    }
-
-    /* Ilustrações */
-    .illustration {
-        max-width: 100%;
-        border-radius: 12px;
-        margin-bottom: 15px;
-    }
-
-    /* Responsivo */
-    @media(max-width: 768px){
-        iframe { height: 250px; }
-        .tabs { gap: 10px; }
-        .tab { padding: 8px 14px; }
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Completo de Comunicação</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Tela de senha -->
-<div class="login-screen">
-    <h2>Digite a senha para acessar o curso</h2>
-    <input type="password" id="senha" placeholder="Senha">
-    <button onclick="checkPassword()">Entrar</button>
-    <p id="login-msg" style="margin-top:10px;color:#ff8080;"></p>
-</div>
-
-<!-- Container do curso -->
-<div class="container">
-    <div class="header">
-        <h1>Curso Completo de Comunicação e Postura</h1>
-        <p>Aprenda dicção, postura, modo de agir e comunicação de forma prática</p>
+    <div id="login-screen">
+        <h2>Digite a senha para acessar o curso</h2>
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="verificarSenha()">Entrar</button>
+        <p id="erro-senha"></p>
     </div>
 
-    <!-- Abas -->
-    <div class="tabs">
-        <div class="tab active" onclick="showModule(0)">Postura</div>
-        <div class="tab" onclick="showModule(1)">Dicção</div>
-        <div class="tab" onclick="showModule(2)">Comunicação</div>
-        <div class="tab" onclick="showModule(3)">Modo de Agir</div>
-        <div class="tab" onclick="showModule(4)">Checklist</div>
+    <div id="main-content" class="hidden">
+        <header>
+            <h1>Curso Completo de Comunicação</h1>
+        </header>
+        <div class="container">
+            <nav class="sidebar">
+                <ul>
+                    <li onclick="mostrarModulo(1)">Módulo 1 - Postura</li>
+                    <li onclick="mostrarModulo(2)">Módulo 2 - Dicção</li>
+                    <li onclick="mostrarModulo(3)">Módulo 3 - Comunicação Geral</li>
+                    <li onclick="mostrarModulo(4)">Módulo 4 - Modo de Agir</li>
+                    <li onclick="mostrarModulo(5)">Módulo 5 - Técnicas Extras</li>
+                </ul>
+            </nav>
+            <main class="content">
+                <div id="modulo1" class="modulo hidden">
+                    <h2>Módulo 1 - Postura</h2>
+                    <p>Dicas para melhorar sua postura corporal, presença e confiança.</p>
+                    <ul>
+                        <li>Pratique manter coluna reta</li>
+                        <li>Evite cruzar os braços e pernas</li>
+                        <li>Movimentos suaves e naturais</li>
+                    </ul>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XjF3L2yF4RQ" title="Postura" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <div id="modulo2" class="modulo hidden">
+                    <h2>Módulo 2 - Dicção</h2>
+                    <p>Exercícios de dicção e pronúncia clara para melhorar sua comunicação.</p>
+                    <ul>
+                        <li>Treine trava-línguas diariamente</li>
+                        <li>Fale devagar e com pausas naturais</li>
+                        <li>Projete a voz sem gritar</li>
+                    </ul>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/y6oA5kg4dbM" title="Dicção" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <div id="modulo3" class="modulo hidden">
+                    <h2>Módulo 3 - Comunicação Geral</h2>
+                    <p>Dicas gerais de comunicação e interação social.</p>
+                    <ul>
+                        <li>Mantenha contato visual</li>
+                        <li>Escute mais do que fala</li>
+                        <li>Use gestos naturais</li>
+                    </ul>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6ZrG5MzrYog" title="Comunicação Geral" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <div id="modulo4" class="modulo hidden">
+                    <h2>Módulo 4 - Modo de Agir</h2>
+                    <p>Como agir naturalmente, transmitir confiança e se tornar mais autêntico.</p>
+                    <ul>
+                        <li>Seja você mesmo, sem forçar</li>
+                        <li>Aprenda timing de conversas</li>
+                        <li>Use humor leve para aliviar tensão</li>
+                    </ul>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/3EZ2tM6krlg" title="Modo de Agir" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <div id="modulo5" class="modulo hidden">
+                    <h2>Módulo 5 - Técnicas Extras</h2>
+                    <p>Dicas adicionais de comunicação, postura e dicção que complementam os módulos anteriores.</p>
+                    <ul>
+                        <li>Pratique falar sozinho em frente ao espelho</li>
+                        <li>Grave sua voz e observe pontos a melhorar</li>
+                        <li>Faça anotações sobre interações sociais</li>
+                    </ul>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/vO0HPuJZBvQ" title="Técnicas Extras" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </main>
+        </div>
     </div>
 
-    <!-- Módulos -->
-    <div class="module active">
-        <h2>Postura</h2>
-        <img class="illustration" src="https://i.imgur.com/8tX7vXN.png" alt="Ilustração Postura">
-        <p>Dicas para postura corporal: mantenha costas retas, ombros relaxados, cabeça alinhada, respiração controlada. Isso melhora presença e confiança.</p>
-        <iframe src="https://www.youtube.com/embed/5QfJbmc8PAk" title="Postura e Confiança"></iframe>
-    </div>
-
-    <div class="module">
-        <h2>Dicção</h2>
-        <img class="illustration" src="https://i.imgur.com/6XxFZyQ.png" alt="Ilustração Dicção">
-        <p>Treine pronúncia clara, ritmo, entonação e articulação. Exercícios de trava-línguas ajudam bastante.</p>
-        <iframe src="https://www.youtube.com/embed/kWxGglV3kV4" title="Dicção e Fala"></iframe>
-    </div>
-
-    <div class="module">
-        <h2>Comunicação</h2>
-        <img class="illustration" src="https://i.imgur.com/07Q8X0B.png" alt="Ilustração Comunicação">
-        <p>Aprenda a ouvir, fazer perguntas, manter tom seguro e transmitir mensagens claras. Comunicação efetiva cria conexão natural com pessoas.</p>
-        <iframe src="https://www.youtube.com/embed/8kbXWZHvFTY" title="Comunicação Eficaz"></iframe>
-    </div>
-
-    <div class="module">
-        <h2>Modo de Agir</h2>
-        <img class="illustration" src="https://i.imgur.com/RqX6W5p.png" alt="Ilustração Modo de Agir">
-        <p>Mantenha confiança, postura, naturalidade e timing adequado. Observe situações e ajuste seu comportamento sem forçar interações.</p>
-        <iframe src="https://www.youtube.com/embed/6eYuMyRXjNs" title="Modo de Agir"></iframe>
-    </div>
-
-    <div class="module">
-        <h2>Checklist</h2>
-        <ul class="checklist" id="checklist">
-            <li onclick="toggleCheck(this)">Treinar postura diariamente</li>
-            <li onclick="toggleCheck(this)">Fazer exercícios de dicção</li>
-            <li onclick="toggleCheck(this)">Praticar comunicação clara</li>
-            <li onclick="toggleCheck(this)">Observar e ajustar modo de agir</li>
-            <li onclick="toggleCheck(this)">Revisar módulos e técnicas semanalmente</li>
-        </ul>
-    </div>
-</div>
-
-<script>
-    // Senha
-    function checkPassword(){
-        const senha = document.getElementById('senha').value;
-        if(senha === "1234"){
-            document.querySelector('.login-screen').style.display = 'none';
-            document.querySelector('.container').style.display = 'flex';
-        } else {
-            document.getElementById('login-msg').textContent = "Senha incorreta!";
-        }
-    }
-
-    // Mudar módulos
-    const modules = document.querySelectorAll('.module');
-    const tabs = document.querySelectorAll('.tab');
-    function showModule(index){
-        modules.forEach((mod,i)=>{ mod.classList.remove('active'); tabs[i].classList.remove('active'); });
-        modules[index].classList.add('active');
-        tabs[index].classList.add('active');
-    }
-
-    // Checklist interativo
-    function toggleCheck(li){
-        li.classList.toggle('completed');
-    }
-</script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,204 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curso Pessoal – Comunicação, Postura & Confiança</title>
-  <style>
-    /* Reset e estilos básicos */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed; background-size: cover; min-height: 100vh; }
-    body::before { content: ''; position: fixed; top:0; left:0; right:0; bottom:0; backdrop-filter: blur(12px); background: rgba(0,0,0,0.6); z-index: -1; }
-    a { text-decoration: none; color: inherit; }
-
-    /* Header */
-    header { position: fixed; top:0; left:0; width:100%; padding:15px 20px; background: rgba(0,0,0,0.6); color: #fff; font-size: 1.8rem; text-align:center; z-index: 100; box-shadow: 0 0 15px rgba(0,255,255,0.3); }
-
-    /* Menu lateral */
-    nav {
-      position: fixed;
-      top: 70px;
-      left: 0;
-      width: 240px;
-      height: calc(100% - 70px);
-      background: rgba(0,0,0,0.7);
-      padding-top: 20px;
-      overflow-y: auto;
-      border-right: 2px solid #00e0ff;
-      z-index: 99;
-    }
-    nav a {
-      display: block;
-      padding: 15px 20px;
-      color: #fff;
-      font-weight: bold;
-      transition: background 0.3s, border-left 0.3s;
-      border-left: 4px solid transparent;
-    }
-    nav a:hover {
-      background: rgba(0,224,255,0.2);
-      border-left: 4px solid #00e0ff;
-    }
-
-    /* Container de conteúdo */
-    .container {
-      margin-left: 260px;
-      padding: 100px 40px 50px 40px;
-      max-width: 1000px;
-    }
-
-    section {
-      margin-bottom: 60px;
-      background: rgba(0,0,0,0.5);
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 0 25px rgba(0,224,255,0.2);
-    }
-    section h2 {
-      color: #00e0ff;
-      font-size: 1.9rem;
-      margin-bottom: 15px;
-    }
-    section p {
-      color: #ddd;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-    section ul { margin-left: 20px; margin-bottom: 15px; }
-    section ul li { color: #ccc; margin-bottom: 8px; }
-
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 15px;
-      transition: transform 0.3s;
-    }
-    iframe:hover {
-      transform: scale(1.02);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.6);
-      color: #aaa;
-      margin-top: 50px;
-    }
-
-    @media (max-width: 900px) {
-      nav { position: relative; width: 100%; height: auto; border: none; display: flex; justify-content: center; gap: 10px; }
-      .container { margin-left: 0; padding-top: 140px; }
-    }
-    @media (max-width: 600px) {
-      iframe { height: 250px; }
-      header { font-size: 1.4rem; }
-    }
-  </style>
-  <script>
-    const senha = "MinhasenhaSegura123";  // ← Mude para sua senha
-    let tentativas = 3;
-    while (tentativas > 0) {
-      const entrada = prompt("Digite a senha para acessar o curso:");
-      if (entrada === senha) break;
-      tentativas--;
-      if (tentativas === 0) {
-        document.body.innerHTML = "<h1 style='color:#fff; text-align:center; margin-top:50px;'>Acesso negado</h1>";
-        throw "Acesso negado";
-      }
-    }
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso Completo de Comunicação e Postura</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
 <body>
-  <header>Curso de Comunicação, Postura & Confiança</header>
-  <nav>
-    <a href="#diccao">Dicção & Voz</a>
-    <a href="#linguagem">Linguagem Corporal</a>
-    <a href="#postura">Postura & Presença</a>
-    <a href="#comunicacao">Comunicação Natural</a>
-    <a href="#exercicios">Exercícios & Hábitos</a>
-  </nav>
 
-  <div class="container">
-
-    <!-- Módulo Dicção -->
-    <section id="diccao">
-      <h2>Dicção & Voz</h2>
-      <p>Uma fala clara e confiante começa com dicção, entonação e controle da respiração. Trabalhar esses elementos faz sua comunicação ganhar impacto e assertividade.</p>
-      <ul>
-        <li>Fale devagar — clareza > velocidade.</li>
-        <li>Projete a voz: imagine que sua voz atinja a parede oposta.</li>
-        <li>Respiração abdominal para manter constância.</li>
-        <li>Pratique trava‑línguas e leitura em voz alta.</li>
-      </ul>
-      <h3>Vídeos recomendados:</h3>
-      <iframe src="https://www.youtube.com/embed/1lFZ7hWQH3A" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/Nf8Pry9b0QI" allowfullscreen></iframe>
-    </section>
-
-    <!-- Módulo Linguagem Corporal -->
-    <section id="linguagem">
-      <h2>Linguagem Corporal & Expressão</h2>
-      <p>Mais de 90% da comunicação humana não vem das palavras — vem do corpo. Saber usar postura, gestos e olhar transmite segurança, clareza e presença. 0</p>
-      <ul>
-        <li>Mantenha a coluna ereta e ombros relaxados.</li>
-        <li>Queixo levemente elevado — transmite confiança.</li>
-        <li>Contato visual curtos mas frequentes.</li>
-        <li>Gestos abertos e naturais — evite fechar braços ou mãos escondidas.</li>
-        <li>Andar com passo firme e postura aberta transmite presença.</li>
-      </ul>
-      <h3>Vídeo recomendado:</h3>
-      <iframe src="https://www.youtube.com/embed/d44Gc0WQdwQ" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/Wa0UIGPTcio" allowfullscreen></iframe>
-    </section>
-
-    <!-- Módulo Postura & Presença -->
-    <section id="postura">
-      <h2>Postura & Presença</h2>
-      <p>Postura correta não é só estética: ela altera como você se sente e como os outros te percebem. Estar ereto, com postura aberta, ajuda no controle emocional e na presença. 1</p>
-      <ul>
-        <li>Alinhe coluna, ombros e cabeça — imagine uma linha passando da cabeça ao cóccix.</li>
-        <li>Mexe o core — abdômen e glúteos — para postura estável.</li>
-        <li>Evite ombros curvados, pescoço projetado para frente e olhar para baixo.</li>
-        <li>Use espelho ou celular para se gravar e observar postura.</li>
-      </ul>
-      <h3>Vídeo sugerido:</h3>
-      <iframe src="https://www.youtube.com/embed/9o0CbhH0g44" allowfullscreen></iframe>
-    </section>
-
-    <!-- Módulo Comunicação Natural -->
-    <section id="comunicacao">
-      <h2>Comunicação Natural & Presença Social</h2>
-      <p>Conversar bem não é só sobre o que você fala — é sobre entrega, presença, empatia e ritmo. Veja como alinhar tudo isso de forma natural.</p>
-      <ul>
-        <li>Ouça antes de responder — presença é escuta.</li>
-        <li>Use ritmo natural, pausas e entonação nas falas.</li>
-        <li>Use gestos e expressão facial para reforçar o que diz.</li>
-        <li>Seja genuíno: fale o que sente, com clareza e respeito.</li>
-      </ul>
-      <h3>Vídeos úteis:</h3>
-      <iframe src="https://www.youtube.com/embed/q12JPLt2h6M" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/xYFq5nI0dlA" allowfullscreen></iframe>
-    </section>
-
-    <!-- Módulo Exercícios & Hábitos -->
-    <section id="exercicios">
-      <h2>Exercícios Práticos & Hábitos Diários</h2>
-      <p>Só teoria não basta. A prática constante, mesmo que rápida, constrói confiança, postura e comunicação verdadeira.</p>
-      <ul>
-        <li>Leia em voz alta 5–10 min por dia (livros, notícias, etc.).</li>
-        <li>Treine frente a espelho postura, voz e gestos.</li>
-        <li>Grave pequenos vídeos falando — observe postura e dicção.</li>
-        <li>Anote suas interações sociais e o que percebeu — auto‑observação ajuda muito.</li>
-        <li>Respire com consciência antes de entrar em conversas ou situações sociais.</li>
-      </ul>
-      <h3>Vídeo para começar:</h3>
-      <iframe src="https://www.youtube.com/embed/U2GJkYNex7k" allowfullscreen></iframe>
-    </section>
-
+<div id="overlay-password">
+  <div class="password-box">
+    <h2>Digite a senha para acessar</h2>
+    <input type="password" id="password-input" placeholder="Senha">
+    <button id="password-btn">Entrar</button>
+    <p id="password-error" style="color:red; display:none;">Senha incorreta!</p>
   </div>
+</div>
 
-  <footer>&copy; 2025 — Curso Pessoal de Comunicação & Postura (uso exclusivo)</footer>
+<header>
+  <h1>Curso Completo: Comunicação, Postura e Dicção</h1>
+  <nav>
+    <ul>
+      <li><a href="#diccao">Dicção & Voz</a></li>
+      <li><a href="#linguagem">Linguagem Corporal</a></li>
+      <li><a href="#postura">Postura & Presença</a></li>
+      <li><a href="#comunicacao">Comunicação Natural</a></li>
+      <li><a href="#exercicios">Exercícios & Hábitos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="diccao" class="module">
+    <h2>Dicção & Voz</h2>
+    <p>Aprenda técnicas de dicção, entonação e respiração para falar com clareza e confiança.</p>
+    <ul>
+      <li>Falar devagar e com pausas estratégicas.</li>
+      <li>Praticar trava-línguas diariamente.</li>
+      <li>Gravar a própria voz e ouvir para corrigir vícios de fala.</li>
+    </ul>
+    <div class="video-card">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/x6ymz-5CEB0" title="Dicção e Voz" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="linguagem" class="module">
+    <h2>Linguagem Corporal</h2>
+    <p>Entenda como seu corpo comunica tanto quanto suas palavras.</p>
+    <ul>
+      <li>Evite cruzar braços e pernas ao conversar.</li>
+      <li>Mantenha contato visual adequado.</li>
+      <li>Use gestos naturais para enfatizar pontos.</li>
+    </ul>
+    <div class="video-card">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/vOWYZcIVkBQ" title="Linguagem Corporal" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="postura" class="module">
+    <h2>Postura & Presença</h2>
+    <p>Dicas para transmitir segurança e confiança apenas com sua postura.</p>
+    <ul>
+      <li>Fique ereto, ombros abertos, cabeça erguida.</li>
+      <li>Distribua o peso igualmente nas pernas.</li>
+      <li>Pratique andar com confiança mesmo sozinho.</li>
+    </ul>
+    <div class="video-card">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/8bXr2u0y3no" title="Postura & Presença" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="comunicacao" class="module">
+    <h2>Comunicação Natural</h2>
+    <p>Como conversar de forma natural, sem forçar e mantendo interesse.</p>
+    <ul>
+      <li>Use perguntas abertas para manter a conversa fluida.</li>
+      <li>Escute ativamente e responda mostrando atenção.</li>
+      <li>Evite repetir sempre “legal” ou “ok”, varie expressões.</li>
+    </ul>
+    <div class="video-card">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/YYX3c4xM0B8" title="Comunicação Natural" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="exercicios" class="module">
+    <h2>Exercícios & Hábitos</h2>
+    <p>Exercícios diários para aprimorar dicção, postura e comunicação.</p>
+    <ul>
+      <li>Praticar leitura em voz alta diariamente.</li>
+      <li>Gravar e analisar sua fala 2x por semana.</li>
+      <li>Treinar postura em frente ao espelho.</li>
+      <li>Conversar com novas pessoas para treinar naturalidade.</li>
+    </ul>
+    <div class="video-card">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Y7j4EoNnQ5E" title="Exercícios e Hábitos" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+</main>
+
+<button id="back-to-top">↑</button>
+
+<footer>
+  <p>Curso criado por você mesmo. Uso pessoal.</p>
+</footer>
+
 </body>
 </html>

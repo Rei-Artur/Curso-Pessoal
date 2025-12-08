@@ -1,113 +1,247 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curso Pessoal de Comunicação e Postura</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-    body {font-family: 'Roboto', sans-serif; margin:0; background: #f2f2f2; color:#333;}
-    .navbar {position: fixed; top:0; width:100%; background:#4CAF50; color:white; padding:15px; z-index:1000; display:flex; justify-content:space-between;}
-    .navbar a {color:white; text-decoration:none; margin:0 10px;}
-    .container {padding-top:80px; max-width:900px; margin:auto;}
-    h1, h2 {color:#333;}
-    .card {background:white; padding:20px; margin:20px 0; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);}
-    .card:hover {box-shadow:0 6px 12px rgba(0,0,0,0.2);}
-    iframe {width:100%; height:315px; margin-top:10px; border:none;}
-    #login {position:fixed; top:0; left:0; width:100%; height:100%; background:#000a; display:flex; justify-content:center; align-items:center; z-index:2000;}
-    #login input[type=password] {padding:10px; font-size:16px; border-radius:5px; border:none;}
-    #login button {padding:10px 20px; font-size:16px; margin-left:10px; border:none; border-radius:5px; background:#4CAF50; color:white; cursor:pointer;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Completo: Comunicação e Desenvolvimento Pessoal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
+    body { background: #f4f7f8; color: #333; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      background: #0d6efd;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav h1 { font-size: 1.5rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: #fff; font-weight: bold; transition: 0.3s; }
+    nav ul li a:hover { color: #ffd700; }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to right, #0d6efd, #6610f2);
+      color: #fff;
+    }
+    header h2 { font-size: 2rem; margin-bottom: 20px; }
+    header p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* CARD */
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.2); }
+    .card h3 { margin-bottom: 10px; color: #0d6efd; }
+    .card p { margin-bottom: 15px; }
+    .card a {
+      margin-top: auto;
+      display: inline-block;
+      padding: 10px 15px;
+      background: #0d6efd;
+      color: #fff;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .card a:hover { background: #6610f2; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0d6efd;
+      color: #fff;
+      margin-top: 40px;
+    }
+
+    /* POPUP VIDEO */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+    }
+    .popup-overlay.active { display: flex; }
+    .popup-content {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+    }
+    .popup-content iframe { width: 100%; height: 450px; border: none; border-radius: 12px; }
+    .popup-close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: #fff;
+      border-radius: 50%;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+  </style>
 </head>
 <body>
 
-<div id="login">
-  <div>
-    <input type="password" id="key" placeholder="Digite sua senha">
-    <button onclick="checkKey()">Entrar</button>
-  </div>
-</div>
+  <nav>
+    <h1>Curso Completo</h1>
+    <ul>
+      <li><a href="#diccao">Dicção</a></li>
+      <li><a href="#comunicacao">Comunicação</a></li>
+      <li><a href="#postura">Postura</a></li>
+      <li><a href="#modos">Modo de Agir</a></li>
+      <li><a href="#extras">Extras</a></li>
+    </ul>
+  </nav>
 
-<div class="navbar">
-  <div>Meu Curso Pessoal</div>
-  <div>
-    <a href="#mod1">Postura</a>
-    <a href="#mod2">Dicção</a>
-    <a href="#mod3">Comunicação</a>
-    <a href="#mod4">Ansiedade</a>
-    <a href="#mod5">Iniciar Conversas</a>
-  </div>
-</div>
+  <header>
+    <h2>Curso de Desenvolvimento Pessoal e Comunicação</h2>
+    <p>Aprenda a melhorar sua dicção, postura, comunicação e modo de agir. Um guia completo com técnicas, vídeos e exercícios práticos para aplicar no dia a dia.</p>
+  </header>
 
-<div class="container">
+  <section id="diccao" class="container">
+    <div class="card">
+      <h3>Dicção e Clareza Vocal</h3>
+      <p>Técnicas para melhorar a pronúncia, articulação e projeção de voz.</p>
+      <a href="https://www.youtube.com/watch?v=x8dBz3vW0DA" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Exercícios de Dicção</h3>
+      <p>Pratique trava-línguas e exercícios vocais que fortalecem a fala.</p>
+      <a href="https://www.youtube.com/watch?v=a9vHLwM2vXk" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Dicção Avançada</h3>
+      <p>Aprenda técnicas profissionais usadas por locutores e apresentadores.</p>
+      <a href="https://www.youtube.com/watch?v=K5Uux5CqJd8" target="_blank">Assistir Vídeo</a>
+    </div>
+  </section>
 
-  <div class="card" id="mod1">
-    <h2>Módulo 1: Postura e Presença</h2>
-    <p>Como melhorar sua postura ao andar, sentar e interagir.</p>
-    <iframe src="https://www.youtube.com/embed/Ky3QJ2U1J6o"></iframe>
-  </div>
+  <section id="comunicacao" class="container">
+    <div class="card">
+      <h3>Comunicação Eficaz</h3>
+      <p>Como se expressar melhor em qualquer situação.</p>
+      <a href="https://www.youtube.com/watch?v=lz7RhlXoL0A" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Expressão Corporal</h3>
+      <p>Aprenda a transmitir confiança e segurança com o corpo.</p>
+      <a href="https://www.youtube.com/watch?v=3qUyW9Wllm0" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Entonação e Pausas</h3>
+      <p>Domine a pausa e ritmo da fala para prender atenção.</p>
+      <a href="https://www.youtube.com/watch?v=W3t0rSHIt2s" target="_blank">Assistir Vídeo</a>
+    </div>
+  </section>
 
-  <div class="card" id="mod2">
-    <h2>Módulo 2: Dicção e Tom de Voz</h2>
-    <p>Treinamentos para falar mais claro, confiante e com impacto.</p>
-    <iframe src="https://www.youtube.com/embed/WsO1zJ8qKX0"></iframe>
-  </div>
+  <section id="postura" class="container">
+    <div class="card">
+      <h3>Postura e Linguagem Corporal</h3>
+      <p>Como se portar em pé, sentado e durante apresentações.</p>
+      <a href="https://www.youtube.com/watch?v=Pn6sYg2ukGk" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Postura Confiante</h3>
+      <p>Exercícios que ajudam a transmitir segurança sem esforço.</p>
+      <a href="https://www.youtube.com/watch?v=ry9TXwRbwKc" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Postura Profissional</h3>
+      <p>Dicas para se portar bem em ambientes formais ou apresentações.</p>
+      <a href="https://www.youtube.com/watch?v=6c0wLqHfC1E" target="_blank">Assistir Vídeo</a>
+    </div>
+  </section>
 
-  <div class="card" id="mod3">
-    <h2>Módulo 3: Comunicação Geral</h2>
-    <p>Dicas de postura, empatia, storytelling e humor.</p>
-    <iframe src="https://www.youtube.com/embed/4rY1rUzN6jQ"></iframe>
-  </div>
+  <section id="modos" class="container">
+    <div class="card">
+      <h3>Modo de Agir</h3>
+      <p>Como se comportar naturalmente em situações sociais e profissionais.</p>
+      <a href="https://www.youtube.com/watch?v=wCIFb8yH1IQ" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Confiança e Naturalidade</h3>
+      <p>Técnicas para não parecer forçado e manter postura autêntica.</p>
+      <a href="https://www.youtube.com/watch?v=HJYVjO5T5QI" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Interação e Socialização</h3>
+      <p>Como puxar assuntos, manter conversas e fazer networking.</p>
+      <a href="https://www.youtube.com/watch?v=1C0_lFfUvX0" target="_blank">Assistir Vídeo</a>
+    </div>
+  </section>
 
-  <div class="card" id="mod4">
-    <h2>Módulo 4: Ansiedade Social</h2>
-    <p>Como controlar pensamentos e agir natural em situações sociais.</p>
-    <iframe src="https://www.youtube.com/embed/8xXkD4k7Dwo"></iframe>
-  </div>
+  <section id="extras" class="container">
+    <div class="card">
+      <h3>Exercícios Práticos</h3>
+      <p>Atividades diárias para melhorar dicção, postura e comunicação.</p>
+      <a href="https://www.youtube.com/watch?v=rJxh3yhV1a0" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Mindset e Foco</h3>
+      <p>Como manter disciplina, foco e controle emocional durante treinos.</p>
+      <a href="https://www.youtube.com/watch?v=6sXzV6Ckx6k" target="_blank">Assistir Vídeo</a>
+    </div>
+    <div class="card">
+      <h3>Comunicação Online</h3>
+      <p>Como manter conversas naturais e evitar ansiedade em chats.</p>
+      <a href="https://www.youtube.com/watch?v=0M2zq-kA9xM" target="_blank">Assistir Vídeo</a>
+    </div>
+  </section>
 
-  <div class="card" id="mod5">
-    <h2>Módulo 5: Iniciar Conversas e Timing</h2>
-    <p>Como puxar assuntos de forma natural e não forçada.</p>
-    <iframe src="https://www.youtube.com/embed/h5DlWkFh3cw"></iframe>
-  </div>
+  <footer>
+    <p>Curso desenvolvido por você mesmo com apoio de IA - Todos os direitos reservados &copy; 2025</p>
+  </footer>
 
-  <div class="card" id="mod6">
-    <h2>Módulo 6: Expressões Faciais e Linguagem Corporal</h2>
-    <p>Aprenda microexpressões e gestos que passam confiança.</p>
-    <iframe src="https://www.youtube.com/embed/OZyZx_pzChQ"></iframe>
-  </div>
+  <script>
+    // Se você quiser implementar popup de vídeo futuramente
+    const popup = document.querySelector('.popup-overlay');
+    const closeBtn = document.querySelector('.popup-close');
 
-  <div class="card" id="mod7">
-    <h2>Módulo 7: Humor e Ironia Sutil</h2>
-    <p>Como usar o humor para se conectar sem exagerar.</p>
-    <iframe src="https://www.youtube.com/embed/euP0e0eGx5Y"></iframe>
-  </div>
+    document.querySelectorAll('.card a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Se quiser, aqui você pode criar o popup
+        // e usar link.href como src do iframe
+      });
+    });
 
-  <div class="card" id="mod8">
-    <h2>Módulo 8: Memorização de Tópicos e Storytelling</h2>
-    <p>Como guardar informações e contar histórias interessantes.</p>
-    <iframe src="https://www.youtube.com/embed/3YsXgUQjzHQ"></iframe>
-  </div>
-
-  <div class="card" id="mod9">
-    <h2>Módulo 9: Gestão de Atenção e Foco</h2>
-    <p>Como não se perder em pensamentos e focar em interações reais.</p>
-    <iframe src="https://www.youtube.com/embed/p8_V2xCzN2I"></iframe>
-  </div>
-
-</div>
-
-<script>
-function checkKey() {
-  const input = document.getElementById('key').value;
-  const correctKey = "12345"; // altere para sua key pessoal
-  if(input === correctKey){
-    document.getElementById('login').style.display='none';
-  } else {
-    alert("Senha incorreta");
-  }
-}
-</script>
+    if(closeBtn) closeBtn.addEventListener('click', () => popup.classList.remove('active'));
+  </script>
 
 </body>
 </html>
